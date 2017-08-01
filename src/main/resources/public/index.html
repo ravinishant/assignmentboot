@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <h1>Customer Management</h1>
+      <b>Id:</b><input type="text" id="id"/>
+      <b>Name:</b><input type="text" id="name" /><br />
+      <b>Age:</b><input type="text" id="age" /><br />
+      <b>Description:</b><input type="text" id="desc" /><br />
+      <b>Email:</b><input type="text" id="email" /><br />
+      <b>City:</b><input type="text" id="city" /><br />
+      <b>ZipCode:</b><input type="text" id="zipcode" /><br />
+      <button onclick="insertData()">Insert Customer</button>
+      <button onclick="updateData()">Update Customer</button><br>
+      <button onclick="deleteData()">Delete Customer</button>
+      <button onclick="fetchAll()">Fetch All Customers</button>
+      <button onclick="fetchById()">Fetch Customer by Id</button>
+      <br />
+      <br />
+      <br />
+      <pre id="details"></pre>
+    </div>
+    <script src="lib/jquery/jquery.min.js"></script>
+  </body>
+</html>
