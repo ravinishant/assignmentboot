@@ -17,7 +17,7 @@ import org.spark_project.guava.reflect.TypeToken;
 public class CustomerHelper {
     private static final Type CUSTOMER_TYPE = new TypeToken<List<Customer>>() {}.getType();
     private static Gson gson = new Gson();
-    private static final String path = "/resources/data/customer.json";
+    private final String path = "/resources/data/customer.json";
 
     /**
      helper method to list all customers
@@ -105,7 +105,7 @@ public class CustomerHelper {
      */
     private static List<Customer> readData() throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path));
+        JsonReader reader = new JsonReader(new FileReader("C:/Projects/customer.json"));
         List<Customer> data = gson.fromJson(reader, CUSTOMER_TYPE);
         return data;
     }
@@ -114,7 +114,7 @@ public class CustomerHelper {
      private method to write data to json file
      */
     private static void writeData(List<Customer> data) throws IOException {
-        Writer writer = new FileWriter(path);
+        Writer writer = new FileWriter("C:/Projects/customer.json");
         Gson gsonOut = new GsonBuilder().create();
         gsonOut.toJson(data, writer);
         writer.close();
