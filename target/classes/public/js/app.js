@@ -13,7 +13,12 @@ function insertData() {
             $('#details').html(data);
         },
         error: function (error) {
-            $('#details').html(error.responseText);
+            if (error.status == 400){
+                $('#details').html("Server got a bad request. Please check payload data.")
+            }
+            else {
+                $('#details').html(error.responseText);
+            }
         }
     });
 }
@@ -63,7 +68,12 @@ function updateData() {
             $('#details').html(data);
         },
         error: function (error) {
-            $('#details').html(error.responseText);
+            if (error.status == 400){
+                $('#details').html("Server got a bad request. Please check payload data.")
+            }
+            else {
+                $('#details').html(error.responseText);
+            }
         }
     });
 }
