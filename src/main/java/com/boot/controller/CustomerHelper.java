@@ -8,8 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import org.spark_project.guava.reflect.TypeToken;
+
 
 /**
  * Created byy SaiVedNish on 7/31/2017.
