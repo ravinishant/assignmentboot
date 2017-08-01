@@ -18,7 +18,7 @@ import com.google.gson.stream.JsonReader;
 public class CustomerHelper {
     private static final Type CUSTOMER_TYPE = new TypeToken<List<Customer>>() {}.getType();
     private static Gson gson = new Gson();
-    private final String path = "/resources/data/customer.json";
+    private static String path = CustomerHelper.class.getClassLoader().getResource("data/customer.json").getPath();
 
     /**
      helper method to list all customers
@@ -106,7 +106,7 @@ public class CustomerHelper {
      */
     private static List<Customer> readData() throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("C:/Projects/customer.json"));
+        JsonReader reader = new JsonReader(new FileReader(path));
         List<Customer> data = gson.fromJson(reader, CUSTOMER_TYPE);
         return data;
     }
@@ -115,7 +115,7 @@ public class CustomerHelper {
      private method to write data to json file
      */
     private static void writeData(List<Customer> data) throws IOException {
-        Writer writer = new FileWriter("C:/Projects/customer.json");
+        Writer writer = new FileWriter(path);
         Gson gsonOut = new GsonBuilder().create();
         gsonOut.toJson(data, writer);
         writer.close();
